@@ -75,8 +75,8 @@ class GLOM(nn.Module):
         return embedding
 
     def attention(self, embedding, h, w):
-        w = torch.exp(self.beta * torch.einsum('be,behw->bhw', embedding[:, :, h, w], embedding))
-        return w / torch.sum(w)
+        attention_weights = torch.exp(self.beta * torch.einsum('be,behw->bhw', embedding[:, :, h, w], embedding))
+        return attention_weights / torch.sum(attention_weights)
 
     def location(self, p):
         '''
