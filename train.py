@@ -14,4 +14,3 @@ if __name__ == '__main__':
     for _ in tqdm(range(100)):
         data = torch.rand(1, 1, 16, 16)
         out = model(data)
-        a = 1
