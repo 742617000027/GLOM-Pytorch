@@ -3,16 +3,6 @@ import torch
 import torch.nn as nn
 
 
-class BottomUp(nn.Module):
-    def __init__(self):
-        super(BottomUp, self).__init__()
-
-
-class TopDown(nn.Module):
-    def __init__(self):
-        super(TopDown, self).__init__()
-
-
 class GLOM(nn.Module):
     def __init__(self, n_cycles, n_levels, in_channels, embedding_dims, patch_size, L=10, beta=1e-3):
         super(GLOM, self).__init__()
