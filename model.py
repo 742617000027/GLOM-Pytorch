@@ -34,9 +34,10 @@ class GLOM(nn.Module):
         H = H // self.patch_size[0]
         W = W // self.patch_size[1]
 
-        embedding = torch.stack(
-            [self.init_embed(x)] + [torch.zeros((N, self.embedding_dims, H, W)).to(x.device)] * (self.n_levels - 1),
-            dim=4)
+        embedding = \
+            torch.stack([self.init_embed(x)] +
+                        [torch.zeros((N, self.embedding_dims, H, W)).to(x.device)] * (self.n_levels - 1),
+                        dim=4)
         prev_embedding = embedding.clone()
 
         for t in range(self.n_cycles):
